@@ -9,11 +9,12 @@ use warnings;
 #use diagnostics;
 
 chomp (my $directoryRequest = (@ARGV));
-print (@ARGV);
-my $pwd = chomp (`pwd`);
-print "\nThe directory before the If statement is $pwd;"
-if ($directoryRequest eq "") {
-    print "I\'m in the blank variable block\n";
+print "$directoryRequest";
+chomp (my $pwd = `pwd`);
+print "\nThe directory before the If statement is $pwd";
+
+if ($directoryRequest) {
+    print "\nI\'m in a blank variable block\n";
     chdir ".";
 }
 else {
